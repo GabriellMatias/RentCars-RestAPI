@@ -1,11 +1,11 @@
-import { CategoriesRepository } from '../repositories/categoriesRepository'
+import { CategoriesRepository } from '../../repositories/categoriesRepository'
 
 interface RequestProps {
   name: string
   description: string
 }
 
-class CreateCategoryService {
+class CreateCategoryUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(private categoriesRepository: CategoriesRepository) {}
 
@@ -18,4 +18,4 @@ class CreateCategoryService {
   }
 }
 
-export { CreateCategoryService }
+export { CreateCategoryUseCase }

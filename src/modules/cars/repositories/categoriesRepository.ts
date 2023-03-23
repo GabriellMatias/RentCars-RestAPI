@@ -1,11 +1,10 @@
-import { Category } from '../model/category'
+import { Category } from '../model/Category'
+import {
+  CategoriesRepositoryProps,
+  CreateCategorieProps,
+} from './InterfaceCategoriesRepository'
 
-interface CreateCategorieProps {
-  name: string
-  description: string
-}
-
-class CategoriesRepository {
+class CategoriesRepository implements CategoriesRepositoryProps {
   private categories: Category[]
 
   /* metodo principal que inicia a classe */
