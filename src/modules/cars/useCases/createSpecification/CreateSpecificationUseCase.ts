@@ -1,11 +1,11 @@
-import { SpecificationRepositoryProps } from '../repositories/InterfaceSpecificationRepository'
+import { SpecificationRepositoryProps } from '../../repositories/InterfaceSpecificationRepository'
 
 interface RequestProps {
   name: string
   description: string
 }
 
-class CreateSpecificationService {
+class CreateSpecificationUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(private specificationsRepository: SpecificationRepositoryProps) {}
 
@@ -20,4 +20,4 @@ class CreateSpecificationService {
   }
 }
 
-export { CreateSpecificationService }
+export { CreateSpecificationUseCase }
