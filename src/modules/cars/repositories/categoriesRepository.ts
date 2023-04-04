@@ -6,10 +6,19 @@ import {
 
 class CategoriesRepository implements CategoriesRepositoryProps {
   private categories: Category[]
+  // eslint-disable-next-line no-use-before-define
+  private static INSTANCE: CategoriesRepository
 
   /* metodo principal que inicia a classe */
-  constructor() {
+  private constructor() {
     this.categories = []
+  }
+
+  public static getInstance(): CategoriesRepository {
+    if (!CategoriesRepository.INSTANCE) {
+      CategoriesRepository.INSTANCE = new CategoriesRepository()
+    }
+    return CategoriesRepository.INSTANCE
   }
 
   /* Metodo para criacao de uma categoria */
