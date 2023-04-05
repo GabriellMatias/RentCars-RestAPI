@@ -2,7 +2,7 @@ import { Category } from '../model/Category'
 import {
   CategoriesRepositoryProps,
   CreateCategorieProps,
-} from './InterfaceCategoriesRepository'
+} from '../repositories/implementations/InterfaceCategoriesRepository'
 
 class CategoriesRepository implements CategoriesRepositoryProps {
   private categories: Category[]

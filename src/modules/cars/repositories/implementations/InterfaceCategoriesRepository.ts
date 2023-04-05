@@ -1,4 +1,4 @@
-import { Category } from '../model/Category'
+import { Category } from '../../model/Category'
 
 export interface CreateCategorieProps {
   name: string

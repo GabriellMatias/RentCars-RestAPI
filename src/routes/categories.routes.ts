@@ -1,9 +1,10 @@
 import { importCategoryController } from './../modules/cars/useCases/importCategorie/index'
 import { Router } from 'express'
-import { CategoriesRepository } from '../modules/cars/repositories/categoriesRepository'
+
 import multer from 'multer'
 
 import { createCategoryController } from '../modules/cars/useCases/createCategory'
+import { listCategoriesController } from '../modules/cars/useCases/listCategories'
 
 const upload = multer({ dest: './tmp' })
 
@@ -11,16 +12,13 @@ const categoriesRoutes = Router()
 /** Agora posso utilizar o repositorio do postgres para utilizar qualquer
  * banco de dados
  */
-const categoriesRepository = new CategoriesRepository()
 
-categoriesRoutes.post('/', (request, response) => {
+categoriesRoutes.post('/', (request: any, response) => {
   return createCategoryController.handle(request, response)
 })
 
 categoriesRoutes.get('/', (request, response) => {
-  const categoriesList = categoriesRepository.list()
-
-  return response.status(200).send({ categoriesList })
+  return listCategoriesController.handle(request, response)
 })
 
 categoriesRoutes.post('/import', upload.single('file'), (request, response) => {

@@ -1,21 +1,49 @@
 import fs from 'fs'
 import { parse as csvParse } from 'csv-parse'
-import { CategoriesRepositoryProps } from '../../repositories/InterfaceCategoriesRepository'
+import { CategoriesRepositoryProps } from '../../repositories/implementations/InterfaceCategoriesRepository'
+
+interface ImportCategoryProps {
+  name: string
+  description: string
+}
 
 class ImportCategoryUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(private categoriesRepository: CategoriesRepositoryProps) {}
-  // eslint-disable-next-line no-undef
-  execute(file: Express.Multer.File): void {
-    const stream = fs.createReadStream(file.path)
-    const parseFile = csvParse({})
 
-    /* a cada pedaco do arquivo lido ele manda para o local que voce escolhar */
-    stream.pipe(parseFile)
+  async loadCategories(
+    // eslint-disable-next-line no-undef
+    file: Express.Multer.File,
+  ): Promise<ImportCategoryProps[]> {
+    return new Promise((resolve, reject) => {
+      const stream = fs.createReadStream(file.path)
+      const parseFile = csvParse({})
+      const categories: ImportCategoryProps[] = []
 
-    parseFile.on('data', async (line) => {
-      console.log(line)
+      /* a cada pedaco do arquivo lido ele manda para o local que voce escolhar */
+      stream.pipe(parseFile)
+
+      parseFile
+        .on('data', async (line) => {
+          const [name, description] = line
+          categories.push({
+            name,
+            description,
+          })
+        })
+        .on('end', () => {
+          resolve(categories)
+        })
+        .on('error', (err) => {
+          reject(err)
+        })
     })
+  }
+
+  // eslint-disable-next-line no-undef
+  async execute(file: Express.Multer.File): Promise<void> {
+    const categories = await this.loadCategories(file)
+    console.log(categories)
   }
 }
 

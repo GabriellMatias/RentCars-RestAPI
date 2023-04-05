@@ -2,7 +2,7 @@ import { Specification } from '../model/Specification'
 import {
   CreateSpecificationProps,
   SpecificationRepositoryProps,
-} from './InterfaceSpecificationRepository'
+} from './implementations/InterfaceSpecificationRepository'
 
 class SpecificationsRepository implements SpecificationRepositoryProps {
   private specifications: Specification[]
