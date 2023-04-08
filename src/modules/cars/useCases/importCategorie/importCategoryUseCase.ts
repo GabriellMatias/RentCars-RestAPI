@@ -32,6 +32,8 @@ class ImportCategoryUseCase {
           })
         })
         .on('end', () => {
+          /* removendo arquivo apos a utilizacao */
+          fs.promises.unlink(file.path)
           resolve(categories)
         })
         .on('error', (err) => {
@@ -43,7 +45,17 @@ class ImportCategoryUseCase {
   // eslint-disable-next-line no-undef
   async execute(file: Express.Multer.File): Promise<void> {
     const categories = await this.loadCategories(file)
-    console.log(categories)
+    categories.map(async (category) => {
+      const { name, description } = category
+      const categoryExists = this.categoriesRepository.findByName(name)
+
+      if (!categoryExists) {
+        this.categoriesRepository.create({
+          name,
+          description,
+        })
+      }
+    })
   }
 }
 
