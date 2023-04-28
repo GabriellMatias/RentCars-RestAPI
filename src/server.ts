@@ -2,8 +2,9 @@ import express from 'express'
 import { routers } from './routes'
 import swaggerUi from 'swagger-ui-express'
 import swaggerFile from './swagger.json'
-import './database'
+import { createConnection } from './database'
 
+createConnection()
 const app = express()
 app.use(express.json())
 

@@ -1,46 +1,44 @@
-import { Category } from '../model/Category'
+import { Category } from '../entities/Category'
 import {
   CategoriesRepositoryProps,
   CreateCategorieProps,
 } from '../repositories/implementations/InterfaceCategoriesRepository'
+import { Repository, getRepository } from 'typeorm'
 
 class CategoriesRepository implements CategoriesRepositoryProps {
-  private categories: Category[]
-  // eslint-disable-next-line no-use-before-define
-  private static INSTANCE: CategoriesRepository
+  private repository: Repository<Category>
 
   /* metodo principal que inicia a classe */
-  private constructor() {
-    this.categories = []
+  constructor() {
+    this.repository = getRepository(Category)
   }
 
-  public static getInstance(): CategoriesRepository {
-    if (!CategoriesRepository.INSTANCE) {
-      CategoriesRepository.INSTANCE = new CategoriesRepository()
-    }
-    return CategoriesRepository.INSTANCE
-  }
+  // public static getInstance(): CategoriesRepository {
+  //   if (!CategoriesRepository.INSTANCE) {
+  //     CategoriesRepository.INSTANCE = new CategoriesRepository()
+  //   }
+  //   return CategoriesRepository.INSTANCE
+  // }
 
   /* Metodo para criacao de uma categoria */
-  create({ description, name }: CreateCategorieProps) {
-    const category = new Category()
-
-    Object.assign(category, {
+  async create({ description, name }: CreateCategorieProps) {
+    const category = this.repository.create({
       name,
       description,
-      created_at: new Date(),
     })
-
-    this.categories.push(category)
+    await this.repository.save(category)
   }
 
   /* Metodo de listagem de categoria */
-  list(): Category[] {
-    return this.categories
+  async list(): Promise<Category[]> {
+    const categories = await this.repository.find()
+    return categories
   }
 
-  findByName(name: string) {
-    const category = this.categories.find((c) => c.name === name)
+  async findByName(name: string): Promise<Category> {
+    const category = await this.repository.findOne({
+      where: { name },
+    })
     return category
   }
 }

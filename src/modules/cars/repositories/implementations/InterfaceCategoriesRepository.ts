@@ -1,4 +1,4 @@
-import { Category } from '../../model/Category'
+import { Category } from '../../entities/Category'
 
 export interface CreateCategorieProps {
   name: string
@@ -6,9 +6,9 @@ export interface CreateCategorieProps {
 }
 
 interface CategoriesRepositoryProps {
-  findByName(name: string): Category
-  list(): Category[]
-  create({ name, description }: CreateCategorieProps): void
+  findByName(name: string): Promise<Category>
+  list(): Promise<Category[]>
+  create({ name, description }: CreateCategorieProps): Promise<void>
 }
 
 export { CategoriesRepositoryProps }
