@@ -2,3 +2,11 @@
 
 ## SOLID CONCEPTS
   -S -> principio de responsabilidade unica
+
+
+
+
+# Questions
+  What is singleton 
+  injecao de dependencias
+  tsyringe

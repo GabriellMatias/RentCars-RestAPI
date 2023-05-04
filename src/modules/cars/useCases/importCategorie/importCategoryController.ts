@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 import { ImportCategoryUseCase } from './importCategoryUseCase'
+import { container } from 'tsyringe'
 
 class ImportCategoryController {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(private importCategoryUseCase: ImportCategoryUseCase) {}
   handle(request: Request, response: Response): Response {
     const { file } = request
-    this.importCategoryUseCase.execute(file)
+    const importCategoryUseCase = container.resolve(ImportCategoryUseCase)
+    importCategoryUseCase.execute(file)
 
     return response.send()
   }

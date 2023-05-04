@@ -1,15 +1,20 @@
 import fs from 'fs'
 import { parse as csvParse } from 'csv-parse'
 import { CategoriesRepositoryProps } from '../../repositories/implementations/InterfaceCategoriesRepository'
+import { inject, injectable } from 'tsyringe'
 
 interface ImportCategoryProps {
   name: string
   description: string
 }
 
+@injectable()
 class ImportCategoryUseCase {
   // eslint-disable-next-line no-useless-constructor
-  constructor(private categoriesRepository: CategoriesRepositoryProps) {}
+  constructor(
+    @inject('CategoriesRepository')
+    private categoriesRepository: CategoriesRepositoryProps,
+  ) {}
 
   async loadCategories(
     // eslint-disable-next-line no-undef

@@ -3,6 +3,7 @@ import { routers } from './routes'
 import swaggerUi from 'swagger-ui-express'
 import swaggerFile from './swagger.json'
 import createDBConnection from './database'
+import './shared/container'
 
 createDBConnection()
 const app = express()

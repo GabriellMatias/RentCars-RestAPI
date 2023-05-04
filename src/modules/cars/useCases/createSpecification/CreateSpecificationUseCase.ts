@@ -1,13 +1,18 @@
-import { SpecificationRepositoryProps } from '../../repositories/InterfaceSpecificationRepository'
+import { inject, injectable } from 'tsyringe'
+import { SpecificationRepositoryProps } from '../../repositories/implementations/InterfaceSpecificationRepository'
 
 interface RequestProps {
   name: string
   description: string
 }
 
+@injectable()
 class CreateSpecificationUseCase {
   // eslint-disable-next-line no-useless-constructor
-  constructor(private specificationsRepository: SpecificationRepositoryProps) {}
+  constructor(
+    @inject('SpecificationsRepository')
+    private specificationsRepository: SpecificationRepositoryProps,
+  ) {}
 
   execute({ name, description }: RequestProps): void {
     const SpecificationAlreadyExitis =

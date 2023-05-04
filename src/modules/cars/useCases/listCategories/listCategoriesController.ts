@@ -5,8 +5,8 @@ class ListCategoriesController {
   // eslint-disable-next-line no-useless-constructor
   constructor(private listCategoriesUseCase: ListCategoriesUseCase) {}
 
-  handle(request: Request, response: Response): Response {
-    const categoriesList = this.listCategoriesUseCase.execute()
+  async handle(request: Request, response: Response): Promise<Response> {
+    const categoriesList = await this.listCategoriesUseCase.execute()
 
     return response.status(200).send({ categoriesList })
   }
