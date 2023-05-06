@@ -14,14 +14,14 @@ class CreateSpecificationUseCase {
     private specificationsRepository: SpecificationRepositoryProps,
   ) {}
 
-  execute({ name, description }: RequestProps): void {
+  async execute({ name, description }: RequestProps): Promise<void> {
     const SpecificationAlreadyExitis =
-      this.specificationsRepository.findByName(name)
+      await this.specificationsRepository.findByName(name)
     if (SpecificationAlreadyExitis) {
       throw new Error(`Specification ${name} already exists`)
     }
 
-    this.specificationsRepository.create({ name, description })
+    await this.specificationsRepository.create({ name, description })
   }
 }
 
