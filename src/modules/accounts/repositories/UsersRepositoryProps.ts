@@ -1,10 +1,4 @@
-interface UserProps {
-  name: string
-  username: string
-  email: string
-  password: string
-  driver_license: string
-}
+import { UserProps } from '../@UserProps/UserProps'
 
 export interface UserRepositoryProps {
   create(data: UserProps): Promise<void>
