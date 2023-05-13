@@ -12,7 +12,6 @@ class UsersRepository implements UserRepositoryProps {
 
   async create({
     name,
-    username,
     // eslint-disable-next-line camelcase
     driver_license,
     password,
@@ -20,7 +19,6 @@ class UsersRepository implements UserRepositoryProps {
   }: UserProps): Promise<void> {
     const user = this.repository.create({
       name,
-      username,
       // eslint-disable-next-line camelcase
       driver_license,
       password,
@@ -28,6 +26,12 @@ class UsersRepository implements UserRepositoryProps {
     })
 
     await this.repository.save(user)
+  }
+
+  async findByEmail(email: string): Promise<User> {
+    const user = await this.repository.findOne({ email })
+
+    return user
   }
 }
 

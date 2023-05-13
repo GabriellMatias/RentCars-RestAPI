@@ -1,3 +1,4 @@
+import { hash } from 'bcrypt'
 import { UserProps } from '../../@UserProps/UserProps'
 import { UserRepositoryProps } from '../../repositories/UsersRepositoryProps'
 
@@ -13,18 +14,25 @@ class CreateUserUseCase {
 
   async execute({
     name,
-    username,
     // eslint-disable-next-line camelcase
     driver_license,
     password,
     email,
   }: UserProps): Promise<void> {
+    const userAlreadyExists = await this.usersRepository.findByEmail(email)
+
+    if (userAlreadyExists) {
+      throw new Error('User Already Exists')
+    }
+
+    // Criptografando senha
+    const passwordHash = await hash(password, 8)
+
     await this.usersRepository.create({
       name,
-      username,
       // eslint-disable-next-line camelcase
       driver_license,
-      password,
+      password: passwordHash,
       email,
       isAdmin: false,
     })
