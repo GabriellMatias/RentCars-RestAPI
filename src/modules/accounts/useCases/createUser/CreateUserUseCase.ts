@@ -1,8 +1,9 @@
-import { hash } from 'bcrypt'
+import { hash } from 'bcryptjs'
 import { UserProps } from '../../@UserProps/UserProps'
 import { UserRepositoryProps } from '../../repositories/UsersRepositoryProps'
 
 import { inject, injectable } from 'tsyringe'
+import { AppError } from '../../../../errors/appError'
 
 @injectable()
 class CreateUserUseCase {
@@ -22,7 +23,7 @@ class CreateUserUseCase {
     const userAlreadyExists = await this.usersRepository.findByEmail(email)
 
     if (userAlreadyExists) {
-      throw new Error('User Already Exists')
+      throw new AppError('User Already Exists', 400)
     }
 
     // Criptografando senha

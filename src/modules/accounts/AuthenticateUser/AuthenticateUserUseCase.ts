@@ -1,7 +1,8 @@
 import { inject, injectable } from 'tsyringe'
 import { UserRepositoryProps } from '../repositories/UsersRepositoryProps'
-import { compare } from 'bcrypt'
+import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
+import { AppError } from '../../../errors/appError'
 
 interface AuthenticateUserUseCaseProps {
   email: string
@@ -18,16 +19,15 @@ class AuthenticateUserUseCase {
   async execute({ email, password }: AuthenticateUserUseCaseProps) {
     const user = await this.userRepository.findByEmail(email)
     if (!user) {
-      throw new Error('Email or password incorrect')
+      throw new AppError('Email or password incorrect', 400)
     }
 
     const correctPassword = await compare(password, user.password)
 
     console.log(password, user.password, correctPassword)
 
-
     if (!correctPassword) {
-      throw new Error('Email or password incorrect!')
+      throw new AppError('Email or password incorrect!', 400)
     }
 
     const jwtToken = sign({}, '759856cc8e350a731a254061b426c10a', {

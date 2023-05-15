@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe'
 import { SpecificationRepositoryProps } from '../../repositories/implementations/InterfaceSpecificationRepository'
+import { AppError } from '../../../../errors/appError'
 
 interface RequestProps {
   name: string
@@ -18,7 +19,7 @@ class CreateSpecificationUseCase {
     const SpecificationAlreadyExitis =
       await this.specificationsRepository.findByName(name)
     if (SpecificationAlreadyExitis) {
-      throw new Error(`Specification ${name} already exists`)
+      throw new AppError(`Specification ${name} already exists`, 400)
     }
 
     await this.specificationsRepository.create({ name, description })
