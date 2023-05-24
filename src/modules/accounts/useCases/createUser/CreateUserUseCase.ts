@@ -15,6 +15,8 @@ class CreateUserUseCase {
 
   async execute({
     name,
+    avatar,
+    id,
     // eslint-disable-next-line camelcase
     driver_license,
     password,
@@ -31,6 +33,8 @@ class CreateUserUseCase {
 
     await this.usersRepository.create({
       name,
+      avatar,
+      id,
       // eslint-disable-next-line camelcase
       driver_license,
       password: passwordHash,

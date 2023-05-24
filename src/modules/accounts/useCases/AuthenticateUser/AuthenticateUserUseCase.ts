@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe'
-import { UserRepositoryProps } from '../repositories/UsersRepositoryProps'
+import { UserRepositoryProps } from '../../repositories/UsersRepositoryProps'
 import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
-import { AppError } from '../../../errors/appError'
+import { AppError } from '../../../../errors/appError'
 
 interface AuthenticateUserUseCaseProps {
   email: string
