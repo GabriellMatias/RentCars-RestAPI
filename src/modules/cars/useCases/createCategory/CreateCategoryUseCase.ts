@@ -1,6 +1,7 @@
 import { AppError } from '../../../../errors/appError'
-import { CategoriesRepository } from '../../repositories/categoriesRepository'
+
 import { inject, injectable } from 'tsyringe'
+import { CategoriesRepositoryProps } from '../../repositories/implementations/InterfaceCategoriesRepository'
 
 interface RequestProps {
   name: string
@@ -12,7 +13,7 @@ class CreateCategoryUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(
     @inject('CategoriesRepository')
-    private categoriesRepository: CategoriesRepository,
+    private categoriesRepository: CategoriesRepositoryProps,
   ) {}
 
   async execute({ name, description }: RequestProps) {

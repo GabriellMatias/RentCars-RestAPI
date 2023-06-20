@@ -7,7 +7,7 @@ import { SpecificationRepositoryProps } from '../../modules/cars/repositories/im
 import { SpecificationsRepository } from '../../modules/cars/repositories/SpecificationsRepository'
 
 import { UserRepositoryProps } from '../../modules/accounts/repositories/UsersRepositoryProps'
-import { UsersRepository } from '../../modules/accounts/implementations/UsersRepository'
+import { UsersRepository } from '../../modules/accounts/repositories/implementations/UsersRepository'
 
 container.registerSingleton<CategoriesRepositoryProps>(
   'CategoriesRepository',

@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
 import { verify } from 'jsonwebtoken'
-import { UsersRepository } from '../modules/accounts/implementations/UsersRepository'
+
 import { AppError } from '../errors/appError'
+import { UsersRepository } from '../modules/accounts/repositories/implementations/UsersRepository'
 
 interface TokenProps {
   sub: string

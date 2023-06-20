@@ -5,5 +5,5 @@ export interface UserProps {
   avatar?: string
   password: string
   driver_license: string
-  isAdmin: boolean
+  isAdmin?: boolean
 }
