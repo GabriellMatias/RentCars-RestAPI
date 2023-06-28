@@ -1,5 +1,5 @@
 import { UserProps } from '../../@UserProps/UserProps'
-import { User } from '../../entities/User'
+import { User } from '../../infra/typeorm/entities/User'
 import { UserRepositoryProps } from '../UsersRepositoryProps'
 
 export class InMemoryUsersRepository implements UserRepositoryProps {

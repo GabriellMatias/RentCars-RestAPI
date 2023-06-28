@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe'
-import { SpecificationRepositoryProps } from '../../repositories/implementations/InterfaceSpecificationRepository'
-import { AppError } from '../../../../errors/appError'
+
+import { AppError } from '../../../../shared/infra/http/errors/appError'
+import { SpecificationRepositoryProps } from '@modules/cars/infra/typeorm/repositories/InterfaceSpecificationRepository'
 
 interface RequestProps {
   name: string

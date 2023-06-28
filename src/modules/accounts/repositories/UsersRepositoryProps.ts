@@ -1,5 +1,5 @@
 import { UserProps } from '../@UserProps/UserProps'
-import { User } from '../entities/User'
+import { User } from '../infra/typeorm/entities/User'
 
 export interface UserRepositoryProps {
   create(data: UserProps): Promise<void>

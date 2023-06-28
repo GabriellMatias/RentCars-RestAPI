@@ -1,7 +1,7 @@
+import { UserRepositoryProps } from '@modules/accounts/repositories/UsersRepositoryProps'
+import { User } from '../entities/User'
 import { Repository, getRepository } from 'typeorm'
-import { UserRepositoryProps } from '../../repositories/UsersRepositoryProps'
-import { User } from '../../entities/User'
-import { UserProps } from '../../@UserProps/UserProps'
+import { UserProps } from '@modules/accounts/@UserProps/UserProps'
 
 class UsersRepository implements UserRepositoryProps {
   private repository: Repository<User>

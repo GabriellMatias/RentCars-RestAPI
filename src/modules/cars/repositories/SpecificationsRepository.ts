@@ -1,9 +1,9 @@
 import { Repository, getRepository } from 'typeorm'
-import { Specification } from '../entities/Specification'
+import { Specification } from '../infra/typeorm/entities/Specification'
 import {
   CreateSpecificationProps,
   SpecificationRepositoryProps,
-} from './implementations/InterfaceSpecificationRepository'
+} from '../infra/typeorm/repositories/InterfaceSpecificationRepository'
 
 class SpecificationsRepository implements SpecificationRepositoryProps {
   private repository: Repository<Specification>

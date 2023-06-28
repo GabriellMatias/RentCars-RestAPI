@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe'
 import { UserRepositoryProps } from '../../repositories/UsersRepositoryProps'
 import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
-import { AppError } from '@errors/appError'
+import { AppError } from '@shared/infra/http/errors/appError'
 
 interface AuthenticateUserUseCaseProps {
   email: string
@@ -23,8 +23,6 @@ class AuthenticateUserUseCase {
     }
 
     const correctPassword = await compare(password, user.password)
-
-    console.log(password, user.password, correctPassword)
 
     if (!correctPassword) {
       throw new AppError('Email or password incorrect!', 400)

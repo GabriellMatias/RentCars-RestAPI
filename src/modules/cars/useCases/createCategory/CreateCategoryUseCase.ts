@@ -1,7 +1,7 @@
-import { AppError } from '../../../../errors/appError'
+import { CategoriesRepositoryProps } from '@modules/cars/infra/typeorm/repositories/InterfaceCategoriesRepository'
+import { AppError } from '../../../../shared/infra/http/errors/appError'
 
 import { inject, injectable } from 'tsyringe'
-import { CategoriesRepositoryProps } from '../../repositories/implementations/InterfaceCategoriesRepository'
 
 interface RequestProps {
   name: string

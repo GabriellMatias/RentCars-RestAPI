@@ -1,4 +1,4 @@
-import { AppError } from '../../../../errors/appError'
+import { AppError } from '../../../../shared/infra/http/errors/appError'
 import { InMemoryCategoriesRepository } from '../../repositories/inMemory/CategoriesRepositoryInMemory'
 import { CreateCategoryUseCase } from './CreateCategoryUseCase'
 

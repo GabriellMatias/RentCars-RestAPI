@@ -1,11 +1,9 @@
 import { Router } from 'express'
 import 'reflect-metadata'
 import multer from 'multer'
-
-import { CreateCategoryController } from '../modules/cars/useCases/createCategory/createCategoryController'
-
-import { ImportCategoryController } from '../modules/cars/useCases/importCategorie/importCategoryController'
-import { ListCategoriesController } from '../modules/cars/useCases/listCategories/listCategoriesController'
+import { CreateCategoryController } from '@modules/cars/useCases/createCategory/createCategoryController'
+import { ImportCategoryController } from '@modules/cars/useCases/importCategorie/importCategoryController'
+import { ListCategoriesController } from '@modules/cars/useCases/listCategories/listCategoriesController'
 
 const upload = multer({ dest: './tmp' })
 
