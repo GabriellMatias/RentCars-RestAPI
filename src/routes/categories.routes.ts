@@ -1,5 +1,5 @@
 import { Router } from 'express'
-
+import 'reflect-metadata'
 import multer from 'multer'
 
 import { CreateCategoryController } from '../modules/cars/useCases/createCategory/createCategoryController'

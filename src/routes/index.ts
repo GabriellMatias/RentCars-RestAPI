@@ -3,6 +3,7 @@ import { categoriesRoutes } from './categories.routes'
 import { specificationRoutes } from './specifications.routes'
 import { usersRoutes } from './users.routes'
 import { authenticateRoutes } from './authenticate.routes'
+import 'reflect-metadata'
 
 const routers = Router()
 

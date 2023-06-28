@@ -4,6 +4,7 @@ import { UpdateUserAvatarController } from '../modules/accounts/useCases/updateU
 import multer from 'multer'
 import uploadConfig from '../config/upload'
 import { ensureAuthenticated } from '../middleware/ensureAuthenticated'
+import 'reflect-metadata'
 
 const usersRoutes = Router()
 const createUserController = new CreateUserController()

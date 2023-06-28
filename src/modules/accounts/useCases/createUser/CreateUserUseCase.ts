@@ -3,7 +3,7 @@ import { UserProps } from '../../@UserProps/UserProps'
 import { UserRepositoryProps } from '../../repositories/UsersRepositoryProps'
 
 import { inject, injectable } from 'tsyringe'
-import { AppError } from '../../../../errors/appError'
+import { AppError } from '@errors/appError'
 
 @injectable()
 class CreateUserUseCase {
