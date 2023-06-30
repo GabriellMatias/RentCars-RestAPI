@@ -1,8 +1,8 @@
+import { Category } from '../../infra/typeorm/entities/Category'
 import {
   CategoriesRepositoryProps,
   CreateCategorieProps,
-} from '@modules/cars/infra/typeorm/repositories/InterfaceCategoriesRepository'
-import { Category } from '../../infra/typeorm/entities/Category'
+} from '../InterfaceCategoriesRepository'
 
 export class InMemoryCategoriesRepository implements CategoriesRepositoryProps {
   categories: Category[] = []

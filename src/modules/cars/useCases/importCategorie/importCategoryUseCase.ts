@@ -2,7 +2,7 @@ import fs from 'fs'
 import { parse as csvParse } from 'csv-parse'
 
 import { inject, injectable } from 'tsyringe'
-import { CategoriesRepositoryProps } from '@modules/cars/infra/typeorm/repositories/InterfaceCategoriesRepository'
+import { CategoriesRepositoryProps } from '@modules/cars/repositories/InterfaceCategoriesRepository'
 
 interface ImportCategoryProps {
   name: string

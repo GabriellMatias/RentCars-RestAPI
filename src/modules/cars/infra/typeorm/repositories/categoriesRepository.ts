@@ -1,10 +1,9 @@
-import { Category } from '../infra/typeorm/entities/Category'
-
-import { Repository, getRepository } from 'typeorm'
 import {
   CategoriesRepositoryProps,
   CreateCategorieProps,
-} from '../infra/typeorm/repositories/InterfaceCategoriesRepository'
+} from '@modules/cars/repositories/InterfaceCategoriesRepository'
+import { Repository, getRepository } from 'typeorm'
+import { Category } from '../entities/Category'
 
 class CategoriesRepository implements CategoriesRepositoryProps {
   private repository: Repository<Category>
