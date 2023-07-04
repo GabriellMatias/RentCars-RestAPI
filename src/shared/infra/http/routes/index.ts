@@ -4,6 +4,7 @@ import { specificationRoutes } from './specifications.routes'
 import { usersRoutes } from './users.routes'
 import { authenticateRoutes } from './authenticate.routes'
 import 'reflect-metadata'
+import { carsRoutes } from './cars.route'
 
 const routers = Router()
 
@@ -12,5 +13,6 @@ routers.use('/categories', categoriesRoutes)
 routers.use('/specifications', specificationRoutes)
 routers.use('/users', usersRoutes)
 routers.use('/sessions', authenticateRoutes)
+routers.use('/cars', carsRoutes)
 
 export { routers }

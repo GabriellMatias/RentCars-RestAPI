@@ -24,8 +24,18 @@ describe('Create Car UseCase', () => {
   })
 
   it('Not Should be able to create a new car with an existing plate', async () => {
-    expect(async () => {
-      await createCarUseCase.execute({
+    await createCarUseCase.execute({
+      brand: 'brand',
+      category_id: 'asda',
+      daily_rate: 5,
+      description: 'Car to Test',
+      fine_amount: 25,
+      liscense_plate: '123abc',
+      name: 'Car',
+    })
+
+    await expect(
+      createCarUseCase.execute({
         brand: 'brand',
         category_id: 'asda',
         daily_rate: 5,
@@ -33,16 +43,7 @@ describe('Create Car UseCase', () => {
         fine_amount: 25,
         liscense_plate: '123abc',
         name: 'Car',
-      })
-      await createCarUseCase.execute({
-        brand: 'brand',
-        category_id: 'asda',
-        daily_rate: 5,
-        description: 'Car to Test',
-        fine_amount: 25,
-        liscense_plate: '123abc',
-        name: 'Car',
-      })
-    }).rejects.toBeInstanceOf(AppError)
+      }),
+    ).rejects.toBeInstanceOf(AppError)
   })
 })

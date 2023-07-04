@@ -1,3 +1,4 @@
+import { Car } from '@modules/cars/infra/typeorm/entities/Car'
 import { CarRepositoryProps } from '@modules/cars/repositories/InterfaceCarRepository'
 import { AppError } from '@shared/infra/http/errors/appError'
 import { inject, injectable } from 'tsyringe'
@@ -12,11 +13,11 @@ interface RequestProps {
   category_id: string
 }
 
-// @injectable()
+@injectable()
 export class CreateCarUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(
-    // @inject('carsRepository')
+    @inject('carsRepository')
     private carsRepository: CarRepositoryProps,
   ) {}
 
@@ -28,7 +29,7 @@ export class CreateCarUseCase {
     fine_amount,
     liscense_plate,
     name,
-  }: RequestProps): Promise<void> {
+  }: RequestProps): Promise<Car> {
     const carAlreadyExists = await this.carsRepository.listByLicensePlate(
       liscense_plate,
     )
@@ -36,7 +37,7 @@ export class CreateCarUseCase {
       throw new AppError('This license plate already exists')
     }
 
-    await this.carsRepository.create({
+    const car = await this.carsRepository.create({
       brand,
       category_id,
       daily_rate,
@@ -45,5 +46,6 @@ export class CreateCarUseCase {
       liscense_plate,
       name,
     })
+    return car
   }
 }

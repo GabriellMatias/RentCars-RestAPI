@@ -12,7 +12,7 @@ export class CarsRepositoryInMemory implements CarRepositoryProps {
     fine_amount,
     liscense_plate,
     name,
-  }: CreateCarsRepositoryProps): Promise<void> {
+  }: CreateCarsRepositoryProps): Promise<Car> {
     const cars = new Car()
 
     Object.assign(cars, {
@@ -21,10 +21,11 @@ export class CarsRepositoryInMemory implements CarRepositoryProps {
       daily_rate,
       description,
       fine_amount,
-      liscense_plate,
+      license_plate: liscense_plate,
       name,
     })
     this.car.push(cars)
+    return cars
   }
 
   async listByLicensePlate(license_plate: string): Promise<Car | null> {

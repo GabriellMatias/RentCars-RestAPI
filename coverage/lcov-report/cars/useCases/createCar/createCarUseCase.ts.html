@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/49</span>
+                <span class='fraction'>51/51</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/49</span>
+                <span class='fraction'>51/51</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -112,104 +112,110 @@
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import { CarRepositoryProps } from '@modules/cars/repositories/InterfaceCarRepository'</span></span></span>
-<span class="cstat-no" title="statement not covered" >import { AppError } from '@shared/infra/http/errors/appError'</span>
-<span class="cstat-no" title="statement not covered" >import { inject, injectable } from 'tsyringe'</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >interface RequestProps {</span>
-<span class="cstat-no" title="statement not covered" >  name: string</span>
-<span class="cstat-no" title="statement not covered" >  description: string</span>
-<span class="cstat-no" title="statement not covered" >  daily_rate: number</span>
-<span class="cstat-no" title="statement not covered" >  liscense_plate: string</span>
-<span class="cstat-no" title="statement not covered" >  fine_amount: number</span>
-<span class="cstat-no" title="statement not covered" >  brand: string</span>
-<span class="cstat-no" title="statement not covered" >  category_id: string</span>
-<span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >// @injectable()</span>
-<span class="cstat-no" title="statement not covered" >export class CreateCarUseCase {</span>
-<span class="cstat-no" title="statement not covered" >  // eslint-disable-next-line no-useless-constructor</span>
-<span class="cstat-no" title="statement not covered" >  constructor(</span>
-<span class="cstat-no" title="statement not covered" >    // @inject('carsRepository')</span>
-<span class="cstat-no" title="statement not covered" >    private carsRepository: CarRepositoryProps,</span>
-<span class="cstat-no" title="statement not covered" >  ) {}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  async execute({</span>
-<span class="cstat-no" title="statement not covered" >    brand,</span>
-<span class="cstat-no" title="statement not covered" >    category_id,</span>
-<span class="cstat-no" title="statement not covered" >    daily_rate,</span>
-<span class="cstat-no" title="statement not covered" >    description,</span>
-<span class="cstat-no" title="statement not covered" >    fine_amount,</span>
-<span class="cstat-no" title="statement not covered" >    liscense_plate,</span>
-<span class="cstat-no" title="statement not covered" >    name,</span>
-<span class="cstat-no" title="statement not covered" >  }: RequestProps): Promise&lt;void&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const carAlreadyExists = await this.carsRepository.listByLicensePlate(</span>
-<span class="cstat-no" title="statement not covered" >      liscense_plate,</span>
-<span class="cstat-no" title="statement not covered" >    )</span>
-<span class="cstat-no" title="statement not covered" >    if (carAlreadyExists) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new AppError('This license plate already exists')</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    await this.carsRepository.create({</span>
-<span class="cstat-no" title="statement not covered" >      brand,</span>
-<span class="cstat-no" title="statement not covered" >      category_id,</span>
-<span class="cstat-no" title="statement not covered" >      daily_rate,</span>
-<span class="cstat-no" title="statement not covered" >      description,</span>
-<span class="cstat-no" title="statement not covered" >      fine_amount,</span>
-<span class="cstat-no" title="statement not covered" >      liscense_plate,</span>
-<span class="cstat-no" title="statement not covered" >      name,</span>
-<span class="cstat-no" title="statement not covered" >    })</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Car } from '@modules/cars/infra/typeorm/entities/Car'
+import { CarRepositoryProps } from '@modules/cars/repositories/InterfaceCarRepository'
+import { AppError } from '@shared/infra/http/errors/appError'
+import { inject, injectable } from 'tsyringe'
+&nbsp;
+interface RequestProps {
+  name: string
+  description: string
+  daily_rate: number
+  liscense_plate: string
+  fine_amount: number
+  brand: string
+  category_id: string
+}
+&nbsp;
+@injectable()
+export class CreateCarUseCase {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(
+    @inject('carsRepository')
+    private carsRepository: CarRepositoryProps,
+  ) {}
+&nbsp;
+  async execute({
+    brand,
+    category_id,
+    daily_rate,
+    description,
+    fine_amount,
+    liscense_plate,
+    name,
+  }: RequestProps): Promise&lt;Car&gt; {
+    const carAlreadyExists = await this.carsRepository.listByLicensePlate(
+      liscense_plate,
+    )
+    if (carAlreadyExists) {
+      throw new AppError('This license plate already exists')
+    }
+&nbsp;
+    const car = await this.carsRepository.create({
+      brand,
+      category_id,
+      daily_rate,
+      description,
+      fine_amount,
+      liscense_plate,
+      name,
+    })
+    return car
+  }
+}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -217,7 +223,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-30T21:53:52.722Z
+                at 2023-07-04T00:50:34.650Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
