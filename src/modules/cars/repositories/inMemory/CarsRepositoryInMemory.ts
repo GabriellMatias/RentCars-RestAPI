@@ -31,4 +31,22 @@ export class CarsRepositoryInMemory implements CarRepositoryProps {
   async listByLicensePlate(license_plate: string): Promise<Car | null> {
     return this.car.find((car) => car.license_plate === license_plate)
   }
+
+  async findAvailable(
+    brand?: string,
+    category_id?: string,
+    name?: string,
+  ): Promise<Car[] | Car | null> {
+    return this.car.filter((car) => {
+      if (
+        car.available === true ||
+        (brand && car.brand === brand) ||
+        (category_id && car.category_id === category_id) ||
+        (name && car.name === name)
+      ) {
+        return car
+      }
+      return null
+    })
+  }
 }
