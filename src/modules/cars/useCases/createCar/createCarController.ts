@@ -11,7 +11,7 @@ export class CreateCarController {
       daily_rate,
       description,
       fine_amount,
-      liscense_plate,
+      license_plate,
       name,
     } = request.body
     const car = await createCarUseCase.execute({
@@ -20,7 +20,7 @@ export class CreateCarController {
       daily_rate,
       description,
       fine_amount,
-      liscense_plate,
+      license_plate,
       name,
     })
     return response.status(201).send({ car })

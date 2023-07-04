@@ -10,8 +10,9 @@ export class CarsRepositoryInMemory implements CarRepositoryProps {
     daily_rate,
     description,
     fine_amount,
-    liscense_plate,
+    license_plate,
     name,
+    specifications,
   }: CreateCarsRepositoryProps): Promise<Car> {
     const cars = new Car()
 
@@ -21,8 +22,9 @@ export class CarsRepositoryInMemory implements CarRepositoryProps {
       daily_rate,
       description,
       fine_amount,
-      license_plate: liscense_plate,
+      license_plate,
       name,
+      specifications,
     })
     this.car.push(cars)
     return cars
@@ -48,5 +50,9 @@ export class CarsRepositoryInMemory implements CarRepositoryProps {
       }
       return null
     })
+  }
+
+  async findById(car_id: string): Promise<Car> {
+    return this.car.find((car) => car.id === car_id)
   }
 }

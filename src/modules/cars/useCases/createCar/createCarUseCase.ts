@@ -7,7 +7,7 @@ interface RequestProps {
   name: string
   description: string
   daily_rate: number
-  liscense_plate: string
+  license_plate: string
   fine_amount: number
   brand: string
   category_id: string
@@ -27,11 +27,11 @@ export class CreateCarUseCase {
     daily_rate,
     description,
     fine_amount,
-    liscense_plate,
+    license_plate,
     name,
   }: RequestProps): Promise<Car> {
     const carAlreadyExists = await this.carsRepository.listByLicensePlate(
-      liscense_plate,
+      license_plate,
     )
     if (carAlreadyExists) {
       throw new AppError('This license plate already exists')
@@ -43,7 +43,7 @@ export class CreateCarUseCase {
       daily_rate,
       description,
       fine_amount,
-      liscense_plate,
+      license_plate,
       name,
     })
     return car

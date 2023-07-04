@@ -18,7 +18,7 @@ describe('List cars UseCase', () => {
       daily_rate: 110.1,
       description: ' Car Description',
       fine_amount: 150,
-      liscense_plate: '123AbcTest',
+      license_plate: '123AbcTest',
       name: 'Car Test',
     })
     const availableCars = await listAvailableCarsUseCase.execute({})
@@ -31,7 +31,7 @@ describe('List cars UseCase', () => {
       daily_rate: 110.1,
       description: ' Car Description',
       fine_amount: 150,
-      liscense_plate: '123AbcTest',
+      license_plate: '123AbcTest',
       name: 'Car Test',
     })
     const availableCars = await listAvailableCarsUseCase.execute({

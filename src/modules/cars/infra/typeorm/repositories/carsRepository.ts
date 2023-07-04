@@ -15,8 +15,9 @@ export class CarsRepository implements CarRepositoryProps {
     daily_rate,
     description,
     fine_amount,
-    liscense_plate,
+    license_plate,
     name,
+    specifications,
   }: CreateCarsRepositoryProps): Promise<Car> {
     const car = this.repository.create({
       brand,
@@ -24,8 +25,9 @@ export class CarsRepository implements CarRepositoryProps {
       daily_rate,
       fine_amount,
       description,
-      license_plate: liscense_plate,
+      license_plate,
       name,
+      specifications,
     })
     await this.repository.save(car)
     return car
@@ -59,5 +61,10 @@ export class CarsRepository implements CarRepositoryProps {
     }
     const cars = await carsQuery.getMany()
     return cars
+  }
+
+  async findById(car_id: string): Promise<Car> {
+    const car = await this.repository.findOne(car_id)
+    return car
   }
 }

@@ -9,4 +9,5 @@ export interface CarRepositoryProps {
     category_id?: string,
     name?: string,
   ): Promise<Car[] | Car | null>
+  findById(car_id: string): Promise<Car | null>
 }

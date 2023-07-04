@@ -13,6 +13,11 @@ class SpecificationsRepository implements SpecificationRepositoryProps {
     this.repository = getRepository(Specification)
   }
 
+  // TODO
+  async findByIds(ids: string[]): Promise<Specification[]> {
+    throw new Error('Method not implemented.')
+  }
+
   async create({ name, description }: CreateSpecificationProps): Promise<void> {
     const specification = this.repository.create({
       name,

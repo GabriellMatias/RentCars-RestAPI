@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for cars/useCases/listCategories/listCategoriesUseCase.ts</title>
+    <title>Code coverage report for cars/useCases/listCars/ListAvailableCarController.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">cars/useCases/listCategories</a> listCategoriesUseCase.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">cars/useCases/listCars</a> ListAvailableCarController.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
@@ -80,8 +80,7 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -98,25 +97,23 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import { inject, injectable } from 'tsyringe'</span></span></span>
-<span class="cstat-no" title="statement not covered" >import { Category } from '../../infra/typeorm/entities/Category'</span>
-<span class="cstat-no" title="statement not covered" >import { CategoriesRepositoryProps } from '@modules/cars/repositories/InterfaceCategoriesRepository'</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import { Request, Response } from 'express'</span></span></span>
+<span class="cstat-no" title="statement not covered" >import { ListAvailableCarsUseCase } from './ListAvailableCarsUseCase'</span>
+<span class="cstat-no" title="statement not covered" >import { container } from 'tsyringe'</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >@injectable()</span>
-<span class="cstat-no" title="statement not covered" >class ListCategoriesUseCase {</span>
-<span class="cstat-no" title="statement not covered" >  // eslint-disable-next-line no-useless-constructor</span>
-<span class="cstat-no" title="statement not covered" >  constructor(</span>
-<span class="cstat-no" title="statement not covered" >    @inject('CategoriesRepository')</span>
-<span class="cstat-no" title="statement not covered" >    private categoriesRepository: CategoriesRepositoryProps,</span>
-<span class="cstat-no" title="statement not covered" >  ) {}</span>
+<span class="cstat-no" title="statement not covered" >export class ListAvailableCarsController {</span>
+<span class="cstat-no" title="statement not covered" >  async handle(request: Request, response: Response): Promise&lt;Response&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const { brand, name, category_id } = request.query</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  async execute(): Promise&lt;Category[]&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const categories = await this.categoriesRepository.list()</span>
-<span class="cstat-no" title="statement not covered" >    return categories</span>
+<span class="cstat-no" title="statement not covered" >    const listAvailableCarsUseCase = container.resolve(ListAvailableCarsUseCase)</span>
+<span class="cstat-no" title="statement not covered" >    const cars = listAvailableCarsUseCase.execute({</span>
+<span class="cstat-no" title="statement not covered" >      brand: brand as string,</span>
+<span class="cstat-no" title="statement not covered" >      name: name as string,</span>
+<span class="cstat-no" title="statement not covered" >      category_id: category_id as string,</span>
+<span class="cstat-no" title="statement not covered" >    })</span>
+<span class="cstat-no" title="statement not covered" >    return response.status(200).send({ cars })</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" >export { ListCategoriesUseCase }</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

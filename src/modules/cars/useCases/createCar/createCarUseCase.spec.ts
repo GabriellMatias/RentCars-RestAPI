@@ -18,7 +18,7 @@ describe('Create Car UseCase', () => {
       daily_rate: 5,
       description: 'Car to Test',
       fine_amount: 25,
-      liscense_plate: '123abc',
+      license_plate: '123abc',
       name: 'Car',
     })
   })
@@ -30,7 +30,7 @@ describe('Create Car UseCase', () => {
       daily_rate: 5,
       description: 'Car to Test',
       fine_amount: 25,
-      liscense_plate: '123abc',
+      license_plate: '123abc',
       name: 'Car',
     })
 
@@ -41,7 +41,7 @@ describe('Create Car UseCase', () => {
         daily_rate: 5,
         description: 'Car to Test',
         fine_amount: 25,
-        liscense_plate: '123abc',
+        license_plate: '123abc',
         name: 'Car',
       }),
     ).rejects.toBeInstanceOf(AppError)
