@@ -13,6 +13,7 @@ export class CarsRepositoryInMemory implements CarRepositoryProps {
     license_plate,
     name,
     specifications,
+    id,
   }: CreateCarsRepositoryProps): Promise<Car> {
     const cars = new Car()
 
@@ -25,6 +26,7 @@ export class CarsRepositoryInMemory implements CarRepositoryProps {
       license_plate,
       name,
       specifications,
+      id,
     })
     this.car.push(cars)
     return cars

@@ -18,12 +18,16 @@ class SpecificationsRepository implements SpecificationRepositoryProps {
     throw new Error('Method not implemented.')
   }
 
-  async create({ name, description }: CreateSpecificationProps): Promise<void> {
+  async create({
+    name,
+    description,
+  }: CreateSpecificationProps): Promise<Specification> {
     const specification = this.repository.create({
       name,
       description,
     })
     await this.repository.save(specification)
+    return specification
   }
 
   /* Metodo de listagem de categoria */

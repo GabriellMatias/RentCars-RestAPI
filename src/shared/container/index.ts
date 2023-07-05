@@ -8,6 +8,8 @@ import { CategoriesRepositoryProps } from '@modules/cars/repositories/InterfaceC
 import { SpecificationRepositoryProps } from '@modules/cars/repositories/InterfaceSpecificationRepository'
 import { CarRepositoryProps } from '@modules/cars/repositories/InterfaceCarRepository'
 import { CarsRepository } from '@modules/cars/infra/typeorm/repositories/carsRepository'
+import { CarsImageRepositoryProps } from '@modules/cars/repositories/InterfaceCarImage'
+import { CarsImageRepository } from '@modules/cars/infra/typeorm/repositories/carsImageRepository'
 
 container.registerSingleton<CategoriesRepositoryProps>(
   'CategoriesRepository',
@@ -27,4 +29,8 @@ container.registerSingleton<UserRepositoryProps>(
 container.registerSingleton<CarRepositoryProps>(
   'CarsRepository',
   CarsRepository,
+)
+container.registerSingleton<CarsImageRepositoryProps>(
+  'CarsImageRepository',
+  CarsImageRepository,
 )

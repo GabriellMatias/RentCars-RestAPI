@@ -18,6 +18,7 @@ export class CarsRepository implements CarRepositoryProps {
     license_plate,
     name,
     specifications,
+    id,
   }: CreateCarsRepositoryProps): Promise<Car> {
     const car = this.repository.create({
       brand,
@@ -28,6 +29,7 @@ export class CarsRepository implements CarRepositoryProps {
       license_plate,
       name,
       specifications,
+      id,
     })
     await this.repository.save(car)
     return car

@@ -6,7 +6,10 @@ interface CreateSpecificationProps {
 }
 
 interface SpecificationRepositoryProps {
-  create({ name, description }: CreateSpecificationProps): Promise<void>
+  create({
+    name,
+    description,
+  }: CreateSpecificationProps): Promise<Specification>
   list(): Promise<Specification[]>
   findByName(name: string): Promise<Specification>
   findByIds(ids: string[]): Promise<Specification[]>

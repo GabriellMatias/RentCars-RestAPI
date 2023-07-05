@@ -26,12 +26,20 @@ describe('Create Car Specification', () => {
       license_plate: '123abc',
       name: 'Car',
     })
-    const specification_id = ['654654']
 
-    await createCarSpecificationUseCase.execute({
+    const specification = await specificationRepositoryInMemory.create({
+      description: 'test',
+      name: 'test Spec',
+    })
+    const specification_id = [specification.id]
+
+    const specificationCars = await createCarSpecificationUseCase.execute({
       car_id: car.id,
       specification_id,
     })
+
+    expect(specificationCars).toHaveProperty('specifications')
+    expect(specificationCars.specifications.length).toBe(1)
   })
 
   it('should not be able to add a specification to a non-exists car', async () => {

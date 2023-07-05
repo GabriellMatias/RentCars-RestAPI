@@ -6,7 +6,10 @@ import {
 
 export class SpecificationInMemory implements SpecificationRepositoryProps {
   specifications: Specification[] = []
-  async create({ name, description }: CreateSpecificationProps): Promise<void> {
+  async create({
+    name,
+    description,
+  }: CreateSpecificationProps): Promise<Specification> {
     const specification = new Specification()
 
     Object.assign(specification, {
@@ -14,6 +17,7 @@ export class SpecificationInMemory implements SpecificationRepositoryProps {
       name,
     })
     this.specifications.push(specification)
+    return specification
   }
 
   async list(): Promise<Specification[]> {
