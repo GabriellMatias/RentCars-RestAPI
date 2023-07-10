@@ -1,11 +1,8 @@
 import { Rental } from '@modules/rentals/infra/entities/Rental'
 import { RentalRepositoryProps } from '@modules/rentals/repositories/InterfaceRentalRepositoryProps'
+import { DateProviderProps } from '@shared/container/providers/DateProvider/InterfaceDateProvider'
 import { AppError } from '@shared/infra/http/errors/appError'
-
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-
-dayjs.extend(utc)
+import { inject, injectable } from 'tsyringe'
 
 interface RequestProps {
   user_id: string
@@ -13,9 +10,15 @@ interface RequestProps {
   expected_return_date: Date
 }
 
+@injectable()
 export class CreateRentalUseCase {
   // eslint-disable-next-line no-useless-constructor
-  constructor(private rentalsRepository: RentalRepositoryProps) {}
+  constructor(
+    @inject('RentalsRepository')
+    private rentalsRepository: RentalRepositoryProps,
+    @inject('DayJsDateProvider')
+    private dateProvider: DateProviderProps,
+  ) {}
 
   async execute({
     car_id,
@@ -33,16 +36,10 @@ export class CreateRentalUseCase {
       throw new AppError('This user already have an rental in progress')
     }
 
-    const expectedReturnDateFormat = dayjs(expected_return_date)
-      .utc()
-      .local()
-      .format()
-
-    const todayDate = dayjs(new Date()).utc().local().format()
-
-    const compareDates = dayjs(expectedReturnDateFormat).diff(
+    const todayDate = this.dateProvider.dateNow()
+    const compareDates = this.dateProvider.compareInHours(
       todayDate,
-      'hours',
+      expected_return_date,
     )
     const minRentalHours = 24
     if (compareDates < minRentalHours) {

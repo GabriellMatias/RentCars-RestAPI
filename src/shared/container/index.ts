@@ -10,6 +10,8 @@ import { CarRepositoryProps } from '@modules/cars/repositories/InterfaceCarRepos
 import { CarsRepository } from '@modules/cars/infra/typeorm/repositories/carsRepository'
 import { CarsImageRepositoryProps } from '@modules/cars/repositories/InterfaceCarImage'
 import { CarsImageRepository } from '@modules/cars/infra/typeorm/repositories/carsImageRepository'
+import { RentalRepositoryProps } from '@modules/rentals/repositories/InterfaceRentalRepositoryProps'
+import { RentalsRespository } from '@modules/rentals/infra/repositories/RentalsRepository'
 
 container.registerSingleton<CategoriesRepositoryProps>(
   'CategoriesRepository',
@@ -33,4 +35,9 @@ container.registerSingleton<CarRepositoryProps>(
 container.registerSingleton<CarsImageRepositoryProps>(
   'CarsImageRepository',
   CarsImageRepository,
+)
+
+container.registerSingleton<RentalRepositoryProps>(
+  'RentalsRepository',
+  RentalsRespository,
 )
