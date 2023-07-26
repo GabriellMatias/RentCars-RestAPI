@@ -10,4 +10,5 @@ export interface CarRepositoryProps {
     name?: string,
   ): Promise<Car[] | Car | null>
   findById(car_id: string): Promise<Car | null>
+  updateAvailable(car_id: string, available: boolean): Promise<void>
 }

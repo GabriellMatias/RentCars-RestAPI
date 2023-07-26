@@ -1,3 +1,4 @@
+import { CarRepositoryProps } from '@modules/cars/repositories/InterfaceCarRepository'
 import { Rental } from '@modules/rentals/infra/entities/Rental'
 import { RentalRepositoryProps } from '@modules/rentals/repositories/InterfaceRentalRepositoryProps'
 import { DateProviderProps } from '@shared/container/providers/DateProvider/InterfaceDateProvider'
@@ -18,6 +19,8 @@ export class CreateRentalUseCase {
     private rentalsRepository: RentalRepositoryProps,
     @inject('DayJsDateProvider')
     private dateProvider: DateProviderProps,
+    @inject('CarsRepository')
+    private carsRepository: CarRepositoryProps,
   ) {}
 
   async execute({
@@ -51,6 +54,10 @@ export class CreateRentalUseCase {
       car_id,
       expected_return_date,
     })
+
+    // definindo status de disponibilidade do carro como false
+    await this.carsRepository.updateAvailable(car_id, false)
+
     return rental
   }
 }

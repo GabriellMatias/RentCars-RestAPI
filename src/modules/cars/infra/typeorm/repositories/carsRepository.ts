@@ -69,4 +69,14 @@ export class CarsRepository implements CarRepositoryProps {
     const car = await this.repository.findOne(car_id)
     return car
   }
+
+  async updateAvailable(car_id: string, available: boolean): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({ available })
+      .where('id=:id')
+      .setParameters({ car_id })
+      .execute()
+  }
 }

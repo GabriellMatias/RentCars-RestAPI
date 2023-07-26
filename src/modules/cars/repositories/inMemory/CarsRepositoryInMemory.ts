@@ -57,4 +57,9 @@ export class CarsRepositoryInMemory implements CarRepositoryProps {
   async findById(car_id: string): Promise<Car> {
     return this.car.find((car) => car.id === car_id)
   }
+
+  async updateAvailable(car_id: string, available: boolean): Promise<void> {
+    const findIndex = this.car.findIndex((car) => car.id === car_id)
+    this.car[findIndex].available = available
+  }
 }
