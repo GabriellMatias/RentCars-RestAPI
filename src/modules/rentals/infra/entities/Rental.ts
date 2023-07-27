@@ -1,15 +1,22 @@
+import { Car } from '@modules/cars/infra/typeorm/entities/Car'
 import {
   Entity,
   PrimaryColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm'
 import { v4 } from 'uuid'
 @Entity('rentals')
 export class Rental {
   @PrimaryColumn()
   id: string
+
+  @ManyToOne(() => Car)
+  @JoinColumn({ name: 'car_id' })
+  car: Car
 
   @Column()
   car_id: string

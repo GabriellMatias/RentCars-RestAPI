@@ -26,10 +26,23 @@ export class RentalsRespository implements RentalRepositoryProps {
   }
 
   async findCarById(car_id: string): Promise<Rental> {
-    return await this.repository.findOne({ car_id })
+    return await this.repository.findOne({ where: { car_id, end_date: null } })
   }
 
   async findRentalByUser(user_id: string): Promise<Rental> {
-    return await this.repository.findOne({ user_id })
+    return await this.repository.findOne({ where: { user_id, end_date: null } })
+  }
+
+  async findById(id: string): Promise<Rental> {
+    return await this.repository.findOne({ id })
+  }
+
+  async listRentalsByUser(user_id: string): Promise<Rental[]> {
+    return await this.repository.find({
+      where: {
+        user_id,
+      },
+      relations: ['car'],
+    })
   }
 }
