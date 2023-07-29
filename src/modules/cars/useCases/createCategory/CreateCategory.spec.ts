@@ -24,7 +24,7 @@ describe('Create Category useCase', () => {
   })
 
   it('should NOT be able to create a new category with same name', async () => {
-    expect(async () => {
+    await expect(async () => {
       await createCategory.execute({
         name: 'Category test',
         description: 'Category desc test',

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for cars/useCases/listCars/ListAvailableCarController.ts</title>
+    <title>Code coverage report for rentals/useCases/listRentalsByUser/listRentalsByUserController.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">cars/useCases/listCars</a> ListAvailableCarController.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">rentals/useCases/listRentalsByUser</a> listRentalsByUserController.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.17% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/17</span>
+                <span class='fraction'>7/14</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.17% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/17</span>
+                <span class='fraction'>7/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -77,18 +77,12 @@
 <a name='L12'></a><a href='#L12'>12</a>
 <a name='L13'></a><a href='#L13'>13</a>
 <a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -98,20 +92,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, Response } from 'express'
-import { ListAvailableCarsUseCase } from './ListAvailableCarsUseCase'
 import { container } from 'tsyringe'
+import { ListRentalsByUserUseCase } from './listRentalsByUserUseCase'
 &nbsp;
-export class ListAvailableCarsController {
-  async <span class="fstat-no" title="function not covered" >handle(request: Request, response: Response): Promise&lt;Response&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const { brand, name, category_id } = request.query</span>
+export class ListRentalsByUserController {
+  async <span class="fstat-no" title="function not covered" >handle(request: Request, response: Response) {</span>
+<span class="cstat-no" title="statement not covered" >    const { id } = request.user</span>
+<span class="cstat-no" title="statement not covered" >    const listRentalsByUserUseCase = container.resolve(ListRentalsByUserUseCase)</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const listAvailableCarsUseCase = container.resolve(ListAvailableCarsUseCase)</span>
-<span class="cstat-no" title="statement not covered" >    const cars = listAvailableCarsUseCase.execute({</span>
-<span class="cstat-no" title="statement not covered" >      brand: brand as string,</span>
-<span class="cstat-no" title="statement not covered" >      name: name as string,</span>
-<span class="cstat-no" title="statement not covered" >      category_id: category_id as string,</span>
-<span class="cstat-no" title="statement not covered" >    })</span>
-<span class="cstat-no" title="statement not covered" >    return response.status(200).send({ cars })</span>
+<span class="cstat-no" title="statement not covered" >    const rentals = await listRentalsByUserUseCase.execute(id)</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    return response.status(200).json(rentals)</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 }
 &nbsp;</pre></td></tr></table></pre>

@@ -2,7 +2,7 @@ import { CreateRentalController } from '@modules/rentals/useCases/createRental/c
 import { Router } from 'express'
 import { ensureAuthenticated } from '../middleware/ensureAuthenticated'
 import { DevolutionRentalController } from '@modules/rentals/useCases/devolutionRental/devolutionRentalController'
-import { ListRentalsByUserController } from '@modules/rentals/useCases/listRentalsByUser/lisRentalsByUserController'
+import { ListRentalsByUserController } from '@modules/rentals/useCases/listRentalsByUser/listRentalsByUserController'
 
 const listRentalsByUserController = new ListRentalsByUserController()
 const devolutionRentalController = new DevolutionRentalController()
