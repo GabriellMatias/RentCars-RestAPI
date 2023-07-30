@@ -25,4 +25,8 @@ export class DayJsDateProvider implements DateProviderProps {
     const start_date_utc = this.convertToUtc(start_date)
     return dayjs(end_date_utc).diff(start_date_utc, 'days')
   }
+
+  addDays(days: number): Date {
+    return dayjs().add(days, 'days').toDate()
+  }
 }
